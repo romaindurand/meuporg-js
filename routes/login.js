@@ -14,10 +14,10 @@ module.exports = function (req, res) {
   }).toArray((err, docs) => {
     if (err) throw new Error('mongodb find login failed')
     console.log('Found the following records')
-    const user = docs[0]
+    let user = docs[0]
     user.privateKey = cuid()
     user.publicKey = cuid()
-    cleanData.selfView(user)
+    user = cleanData(user, ['password'])
     app.get('onlineUsers').push(user)
     res.json(user)
   })

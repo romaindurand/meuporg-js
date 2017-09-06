@@ -18,9 +18,7 @@ io.on('connection', socket => {
 
   socket.on('message', ({privateKey, text}) => {
     const publicKey = app.getPublicKey(privateKey)
-    app.get('onlineUsers').forEach(user => {
-      user.socket.emit('message', {text, publicKey})
-    })
+    app.broadcast('message', { publicKey, text })
   })
 
   socket.on('bind-socket', bindSocket.bind(app, socket))
