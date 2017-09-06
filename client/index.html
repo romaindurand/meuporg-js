@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+      <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <div class="login">
+        <div class="login-username">
+          <span>Username</span>
+          <input type="text" name="username" autofocus>
+        </div>
+        <div class="login-password">
+          <span>Password</span>
+          <input type="password" name="password">
+        </div>
+        <button>Login !</button>
+      </div>
+      <ul id="messages"></ul>
+      <form action="">
+        <input id="m" autocomplete="off" /><button>Send</button>
+      </form>
+
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+      <script src="/js/script.js"></script>
+  </body>
+</html>
