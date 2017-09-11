@@ -16,7 +16,8 @@ function insertDocuments (db, callback) {
     coords: {
       x: 100,
       y: 100
-    }
+    },
+    speed: 1
   }], function (err, result) {
     if (err !== null) {
       console.log('error inserting documents')
