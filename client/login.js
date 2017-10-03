@@ -5,7 +5,7 @@ module.exports = function (app) {
     onLogin (users) {
       if (users instanceof Array) {
         users.forEach(loggedUser => {
-          app.pushUser(users)
+          app.pushUser(loggedUser)
         })
       } else {
         app.pushUser(users)

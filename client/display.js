@@ -2,17 +2,22 @@ const three = require('three')
 const $ = require('jquery')
 
 module.exports = function (app) {
-  app.scene = new three.Scene()
-  app.camera = new three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
-  app.renderer = new three.WebGLRenderer()
-  var mouse = new three.Vector2()
-  var raycaster = new three.Raycaster()
+  var mouse
+  var raycaster
   let floor
-  const helperGeometry = new three.SphereGeometry(0.5)
-  const helper = new three.Mesh(helperGeometry, new three.MeshNormalMaterial())
+  let helperGeometry
+  let helper
 
   return {
     init () {
+      app.scene = new three.Scene()
+      app.camera = new three.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+      app.renderer = new three.WebGLRenderer()
+      mouse = new three.Vector2()
+      raycaster = new three.Raycaster()
+      helperGeometry = new three.SphereGeometry(0.5)
+      helper = new three.Mesh(helperGeometry, new three.MeshNormalMaterial())
+
       document.addEventListener('mousemove', this.onMouseMove, false)
       app.renderer.setSize(window.innerWidth, window.innerHeight)
       document.body.appendChild(app.renderer.domElement)

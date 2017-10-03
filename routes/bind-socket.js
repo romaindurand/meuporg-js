@@ -8,5 +8,5 @@ module.exports = function (socket, privateKey) {
   delete userCopy.privateKey
   delete userCopy.socket
   app.broadcast('login', userCopy)
-  socket.emit('online-users', app.get('onlineUsers').map(user => cleanData(user, ['privateKey', 'password', 'socket'])))
+  socket.emit('login', app.get('onlineUsers').map(user => cleanData(user, ['privateKey', 'password', 'socket'])))
 }
